@@ -3623,21 +3623,23 @@ function bb_mainClass_Game(){
 bb_mainClass_Game.prototype=extend_class(bb_framework_DiddyApp);
 function bb_mainClass_Game_new(){
 	push_err();
-	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<7>";
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<8>";
 	bb_framework_DiddyApp_new.call(this);
-	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<7>";
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<8>";
 	pop_err();
 	return this;
 }
 bb_mainClass_Game.prototype.m_OnCreate=function(){
 	push_err();
-	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<9>";
-	bb_framework_DiddyApp.prototype.m_OnCreate.call(this);
 	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<10>";
-	bb_mainClass_titleScreen=bb_mainClass_TitleScreen_new.call(new bb_mainClass_TitleScreen);
+	bb_framework_DiddyApp.prototype.m_OnCreate.call(this);
 	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<11>";
-	bb_mainClass_titleScreen.m_PreStart();
+	bb_mainClass_titleScreen=bb_mainClass_TitleScreen_new.call(new bb_mainClass_TitleScreen);
 	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<12>";
+	bb_mainClass_gameScreen=bb_mainClass_GameScreen_new.call(new bb_mainClass_GameScreen);
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<13>";
+	bb_mainClass_titleScreen.m_PreStart();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<14>";
 	pop_err();
 	return 0;
 }
@@ -7693,9 +7695,9 @@ function bb_mainClass_TitleScreen(){
 bb_mainClass_TitleScreen.prototype=extend_class(bb_framework_Screen);
 function bb_mainClass_TitleScreen_new(){
 	push_err();
-	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<23>";
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<21>";
 	bb_framework_Screen_new.call(this);
-	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<24>";
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<22>";
 	this.f_name="Title";
 	pop_err();
 	return this;
@@ -7706,26 +7708,68 @@ bb_mainClass_TitleScreen.prototype.m_Start=function(){
 }
 bb_mainClass_TitleScreen.prototype.m_Render=function(){
 	push_err();
-	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<32>";
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<30>";
 	bb_graphics_Cls(0.0,0.0,0.0);
-	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<33>";
-	bb_graphics_DrawText("TITLE SCREEN!",bb_framework_SCREEN_WIDTH2,bb_framework_SCREEN_HEIGHT2,0.5,0.5);
-	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<34>";
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<31>";
+	bb_graphics_DrawText("Bunny Shooter!",bb_framework_SCREEN_WIDTH2,bb_framework_SCREEN_HEIGHT2,0.5,0.5);
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<32>";
 	bb_graphics_DrawText("Escape to Quit!",bb_framework_SCREEN_WIDTH2,bb_framework_SCREEN_HEIGHT2+40.0,0.5,0.5);
-	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<35>";
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<33>";
+	bb_graphics_DrawText("Enter to Play!",bb_framework_SCREEN_WIDTH2,bb_framework_SCREEN_HEIGHT2+80.0,0.5,0.5);
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<34>";
 	bb_framework_FPSCounter_Draw(0,0,0.0,0.0);
 	pop_err();
 }
 bb_mainClass_TitleScreen.prototype.m_Update2=function(){
 	push_err();
-	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<39>";
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<38>";
 	if((bb_input_KeyHit(27))!=0){
-		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<40>";
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<39>";
 		this.m_FadeToScreen(null,bb_framework_defaultFadeTime,false,false,true);
+	}
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<41>";
+	if((bb_input_KeyHit(13))!=0){
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<42>";
+		this.m_FadeToScreen((bb_mainClass_gameScreen),bb_framework_defaultFadeTime,false,false,true);
 	}
 	pop_err();
 }
 var bb_mainClass_titleScreen;
+function bb_mainClass_GameScreen(){
+	bb_framework_Screen.call(this);
+	this.f_bunny=null;
+}
+bb_mainClass_GameScreen.prototype=extend_class(bb_framework_Screen);
+function bb_mainClass_GameScreen_new(){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<49>";
+	bb_framework_Screen_new.call(this);
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<50>";
+	this.f_name="Gameplay";
+	pop_err();
+	return this;
+}
+bb_mainClass_GameScreen.prototype.m_Start=function(){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<54>";
+	this.f_bunny=bb_BunnyClass_Bunny_new.call(new bb_BunnyClass_Bunny,bb_framework_SCREEN_HEIGHT2,bb_framework_SCREEN_WIDTH2);
+	pop_err();
+}
+bb_mainClass_GameScreen.prototype.m_Update2=function(){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<58>";
+	this.f_bunny.m_Update2();
+	pop_err();
+}
+bb_mainClass_GameScreen.prototype.m_Render=function(){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<62>";
+	bb_graphics_Cls(152.0,64.0,32.0);
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/mainClass.monkey<63>";
+	this.f_bunny.m_Draw2();
+	pop_err();
+}
+var bb_mainClass_gameScreen;
 function bb_functions_ExitApp(){
 	push_err();
 	err_info="C:/Users/Seb/Documents/Programmation/Monkey/modules/diddy/functions.monkey<95>";
@@ -7941,6 +7985,193 @@ bb_collections_ArrayListEnumerator2.prototype.m_NextObject=function(){
 	return t_;
 }
 var bb_framework_defaultFadeTime;
+function bb_BunnyClass_Bunny(){
+	Object.call(this);
+	this.f_xPos=.0;
+	this.f_yPos=.0;
+	this.f_speed=4.0;
+	this.f_direction=0;
+	this.f_shoot=null;
+}
+function bb_BunnyClass_Bunny_new(t_x,t_y){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<25>";
+	this.f_xPos=t_x;
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<26>";
+	this.f_yPos=t_y;
+	pop_err();
+	return this;
+}
+function bb_BunnyClass_Bunny_new2(){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<9>";
+	pop_err();
+	return this;
+}
+bb_BunnyClass_Bunny.prototype.m_Update2=function(){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<30>";
+	if((bb_input_KeyDown(38))!=0){
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<31>";
+		this.f_yPos-=this.f_speed;
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<32>";
+		this.f_direction=3;
+	}
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<34>";
+	if((bb_input_KeyDown(40))!=0){
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<35>";
+		this.f_yPos+=this.f_speed;
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<36>";
+		this.f_direction=4;
+	}
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<38>";
+	if((bb_input_KeyDown(37))!=0){
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<39>";
+		this.f_xPos-=this.f_speed;
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<40>";
+		this.f_direction=2;
+	}
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<42>";
+	if((bb_input_KeyDown(39))!=0){
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<43>";
+		this.f_xPos+=this.f_speed;
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<44>";
+		this.f_direction=1;
+	}
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<47>";
+	if((bb_input_KeyHit(83))!=0){
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<48>";
+		this.f_shoot=bb_shootClass_Shoot_new.call(new bb_shootClass_Shoot,this.f_xPos,this.f_yPos,this.f_direction);
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<49>";
+		this.f_shoot.m_Update2();
+	}
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<52>";
+	if(this.f_xPos<0.0){
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<53>";
+		this.f_xPos=0.0;
+	}
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<55>";
+	if(this.f_xPos>bb_framework_SCREEN_WIDTH-15.0){
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<56>";
+		this.f_xPos=bb_framework_SCREEN_WIDTH-15.0;
+	}
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<58>";
+	if(this.f_yPos<9.0){
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<59>";
+		this.f_yPos=9.0;
+	}
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<61>";
+	if(this.f_yPos>bb_framework_SCREEN_HEIGHT-25.0){
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<62>";
+		this.f_yPos=bb_framework_SCREEN_HEIGHT-25.0;
+	}
+	pop_err();
+}
+bb_BunnyClass_Bunny.prototype.m_Draw2=function(){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<67>";
+	bb_graphics_SetColor(255.0,255.0,255.0);
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<68>";
+	bb_graphics_DrawRect(this.f_xPos,this.f_yPos,15.0,25.0);
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<69>";
+	bb_graphics_DrawRect(this.f_xPos,this.f_yPos,2.0,-9.0);
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/BunnyClass.monkey<70>";
+	bb_graphics_DrawRect(this.f_xPos+15.0-2.0,this.f_yPos,2.0,-9.0);
+	pop_err();
+}
+function bb_shootClass_Shoot(){
+	Object.call(this);
+	this.f_xPos=.0;
+	this.f_yPos=.0;
+	this.f_shootDir=0;
+}
+function bb_shootClass_Shoot_new(t_x,t_y,t_facing){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<12>";
+	this.f_xPos=t_x;
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<13>";
+	this.f_yPos=t_y;
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<14>";
+	this.f_shootDir=t_facing;
+	pop_err();
+	return this;
+}
+function bb_shootClass_Shoot_new2(){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<5>";
+	pop_err();
+	return this;
+}
+bb_shootClass_Shoot.prototype.m_Draw2=function(){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<44>";
+	bb_graphics_SetColor(255.0,0.0,0.0);
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<45>";
+	bb_graphics_DrawCircle(this.f_xPos,this.f_yPos,5.0);
+	pop_err();
+}
+bb_shootClass_Shoot.prototype.m_Update2=function(){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<18>";
+	var t_=this.f_shootDir;
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<19>";
+	if(t_==1){
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<20>";
+		this.f_xPos+=20.0;
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<21>";
+		if(this.f_xPos>400.0){
+			err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<22>";
+			print("Disparait");
+		}
+	}else{
+		err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<24>";
+		if(t_==2){
+			err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<25>";
+			this.f_xPos-=20.0;
+			err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<26>";
+			if(this.f_xPos<0.0){
+				err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<27>";
+				print("Disparait");
+			}
+		}else{
+			err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<29>";
+			if(t_==3){
+				err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<30>";
+				this.f_yPos+=20.0;
+				err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<31>";
+				if(this.f_yPos>400.0){
+					err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<32>";
+					print("Disparait");
+				}
+			}else{
+				err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<34>";
+				if(t_==4){
+					err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<35>";
+					this.f_yPos-=20.0;
+					err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<36>";
+					if(this.f_yPos<0.0){
+						err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<37>";
+						print("Disparait");
+					}
+				}
+			}
+		}
+	}
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/shootClass.monkey<40>";
+	this.m_Draw2();
+	pop_err();
+}
+function bb_graphics_DrawCircle(t_x,t_y,t_r){
+	push_err();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/modules/mojo/graphics.monkey<465>";
+	bb_graphics_DebugRenderDevice();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/modules/mojo/graphics.monkey<467>";
+	bb_graphics_ValidateMatrix();
+	err_info="C:/Users/Seb/Documents/Programmation/Monkey/modules/mojo/graphics.monkey<468>";
+	bb_graphics_renderDevice.DrawOval(t_x-t_r,t_y-t_r,t_r*2.0,t_r*2.0);
+	pop_err();
+	return 0;
+}
 function bbInit(){
 	bb_reflection__classesMap=null;
 	bb_reflection__classes=[];
@@ -7977,6 +8208,7 @@ function bbInit(){
 	bb_framework_SoundPlayer_channel=0;
 	bb_framework_SoundBank_path="sounds/";
 	bb_mainClass_titleScreen=null;
+	bb_mainClass_gameScreen=null;
 	bb_framework_defaultFadeTime=600.0;
 }
 //${TRANSCODE_END}
