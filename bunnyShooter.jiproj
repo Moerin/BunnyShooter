@@ -1,6 +1,20 @@
 <?xml version="1.0"?>
 <JiProj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" EntryPoint=".\bunnyShooter.monkey" Name="bunnyShooter">
   <Files>
+    <Document Filename=".\bonusClass.monkey" Open="false" SplitView="false" SplitIsVertical="false" SplitSize="150">
+      <DocGUID />
+      <CursorPos>
+        <X>0</X>
+        <Y>0</Y>
+      </CursorPos>
+    </Document>
+    <Document Filename=".\bulletClass.monkey" Open="false" SplitView="false" SplitIsVertical="false" SplitSize="150">
+      <DocGUID />
+      <CursorPos>
+        <X>0</X>
+        <Y>0</Y>
+      </CursorPos>
+    </Document>
     <Document Filename=".\bunnyClass.monkey" Open="false" SplitView="false" SplitIsVertical="false" SplitSize="150">
       <DocGUID />
       <CursorPos>
@@ -22,6 +36,20 @@
         <Y>0</Y>
       </CursorPos>
     </Document>
+    <Document Filename=".\hunterClass.monkey" Open="false" SplitView="false" SplitIsVertical="false" SplitSize="150">
+      <DocGUID />
+      <CursorPos>
+        <X>0</X>
+        <Y>0</Y>
+      </CursorPos>
+    </Document>
+    <Document Filename=".\level.monkey" Open="false" SplitView="false" SplitIsVertical="false" SplitSize="150">
+      <DocGUID />
+      <CursorPos>
+        <X>0</X>
+        <Y>0</Y>
+      </CursorPos>
+    </Document>
     <Document Filename=".\mainClass.monkey" Open="false" SplitView="false" SplitIsVertical="false" SplitSize="150">
       <DocGUID />
       <CursorPos>
@@ -29,13 +57,6 @@
         <Y>0</Y>
       </CursorPos>
     </Document>
-    <Document Filename=".\shootClass.monkey" Open="false" SplitView="false" SplitIsVertical="false" SplitSize="150">
-      <DocGUID />
-      <CursorPos>
-        <X>0</X>
-        <Y>0</Y>
-      </CursorPos>
-    </Document>
   </Files>
-  <CompilerConfig Configuration="debug" BuildMode="run" Target="html5" />
+  <CompilerConfig Configuration="debug" BuildMode="run" Target="Desktop_Game" />
 </JiProj>

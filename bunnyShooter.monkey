@@ -1,10 +1,11 @@
 Strict
+#TEXT_FILES="*.txt|*.xml|*.json|*.tmx"
 
 Import gameClasses
 #rem
 	Script:		bunnyShooter.monkey
-	Description:	a shooter where you'll kick asses to hunters who want to catch you
-					for the dinner
+	Description:	a shooter where you'll kick hunters asses who want to catch you
+					for their dinner
 	Author: 		Moerin
 #end
 

@@ -3,5 +3,8 @@ Strict
 Import diddy
 
 Import mainClass
-Import BunnyClass
-Import shootClass
+Import bunnyClass
+Import bulletClass
+Import hunterClass
+Import bonusClass
+Import level
