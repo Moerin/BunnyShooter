@@ -7693,7 +7693,7 @@ class c_Hunter : public c_Sprite{
 	c_Hunter* m_new();
 	void p_CheckCollision();
 	void p_Update3(int,int);
-	void p_Render();
+	void p_Draw();
 	void mark();
 	String debug();
 };
@@ -26235,33 +26235,33 @@ c_Bunny* c_Bunny::m_new(c_GameImage* t_img,Float t_x,Float t_y,int t_bAmount){
 	DBG_LOCAL(t_x,"x")
 	DBG_LOCAL(t_y,"y")
 	DBG_LOCAL(t_bAmount,"bAmount")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<38>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<34>");
 	c_Sprite::m_new2();
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<39>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<35>");
 	gc_assign(this->m_image,t_img);
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<42>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<38>");
 	this->m_x=t_x;
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<43>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<39>");
 	this->m_y=t_y;
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<45>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<41>");
 	m_bCount=t_bAmount;
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<46>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<42>");
 	m_flTimer=Float(bb_app_Millisecs());
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<48>");
-	this->p_SetHitBox(-t_img->m_w,int(-t_img->m_h2),32,32);
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<49>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<44>");
+	this->p_SetHitBox(int(-t_img->m_w2+FLOAT(17.0)),int(-t_img->m_h2),32,32);
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<45>");
 	this->m_visible=true;
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<50>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<46>");
 	m_direction=2;
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<53>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<49>");
 	gc_assign(m_walkImagesTop,bb_framework_diddyGame->m_images->p_FindSet(String(L"bunny_top",9),32,32,2,true,String()));
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<54>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<50>");
 	gc_assign(m_walkImagesBottom,bb_framework_diddyGame->m_images->p_FindSet(String(L"bunny_bottom",12),32,32,2,true,String()));
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<55>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<51>");
 	gc_assign(m_walkImagesRight,bb_framework_diddyGame->m_images->p_FindSet(String(L"bunny_right",11),32,32,2,true,String()));
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<56>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<52>");
 	gc_assign(m_walkImagesLeft,bb_framework_diddyGame->m_images->p_FindSet(String(L"bunny_left",10),32,32,2,true,String()));
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<57>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<53>");
 	gc_assign(m_standImage,bb_framework_diddyGame->m_images->p_Find(String(L"bunny_bottom",12)));
 	return this;
 }
@@ -26269,7 +26269,7 @@ c_Bunny* c_Bunny::m_new2(){
 	DBG_ENTER("Bunny.new")
 	c_Bunny *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<9>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<5>");
 	c_Sprite::m_new2();
 	return this;
 }
@@ -26277,20 +26277,20 @@ void c_Bunny::p_CheckCollision(){
 	DBG_ENTER("Bunny.CheckCollision")
 	c_Bunny *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<185>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<186>");
 	c_Enumerator* t_=bb_hunterClass_hunters->p_ObjectEnumerator();
 	while(t_->p_HasNext()){
 		DBG_BLOCK();
 		c_Hunter* t_h=t_->p_NextObject();
 		DBG_LOCAL(t_h,"h")
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<186>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<187>");
 		if(t_h->p_GetXpos()+Float(t_h->p_GetWidth())>m_x && t_h->p_GetXpos()<m_x+FLOAT(15.0) && t_h->p_GetYpos()+Float(t_h->p_GetHeight())>m_y && t_h->p_GetYpos()<m_y+FLOAT(25.0) && m_flickering==false){
 			DBG_BLOCK();
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<187>");
-			bbPrint(String(L"hit",3));
 			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<188>");
-			m_health-=1;
+			bbPrint(String(L"hit",3));
 			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<189>");
+			m_health-=1;
+			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<190>");
 			m_flickering=true;
 		}
 	}
@@ -26299,102 +26299,108 @@ void c_Bunny::p_Update2(){
 	DBG_ENTER("Bunny.Update")
 	c_Bunny *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<61>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<57>");
 	if((bb_input_KeyDown(87))!=0){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<62>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<58>");
 		m_y-=m_speed;
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<63>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<59>");
 		m_direction=1;
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<60>");
+		gc_assign(m_image,m_walkImagesTop);
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<61>");
+		p_SetFrame(0,1,50,false,true);
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<65>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<63>");
 	if((bb_input_KeyDown(83))!=0){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<66>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<64>");
 		m_y+=m_speed;
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<67>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<65>");
 		m_direction=2;
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<69>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<67>");
 	if((bb_input_KeyDown(65))!=0){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<70>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<68>");
 		m_x-=m_speed;
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<71>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<69>");
 		m_direction=3;
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<73>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<71>");
 	if((bb_input_KeyDown(68))!=0){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<74>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<72>");
 		m_x+=m_speed;
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<75>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<73>");
 		m_direction=4;
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<79>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<77>");
 	if(((bb_input_MouseHit(0))!=0) && m_bCount>0){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<80>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<78>");
 		bb_bulletClass_CreateBullet(int(bb_input_MouseX()),int(bb_input_MouseY()),int(m_x),int(m_y));
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<81>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<79>");
 		m_bCount-=1;
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<84>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<82>");
 	if(m_x<FLOAT(0.0)){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<85>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<83>");
 		m_x=FLOAT(0.0);
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<87>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<85>");
 	if(m_x>bb_framework_SCREEN_WIDTH-FLOAT(15.0)){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<88>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<86>");
 		m_x=bb_framework_SCREEN_WIDTH-FLOAT(15.0);
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<90>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<88>");
 	if(m_y<FLOAT(9.0)){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<91>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<89>");
 		m_y=FLOAT(9.0);
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<93>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<91>");
 	if(m_y>bb_framework_SCREEN_HEIGHT-FLOAT(25.0)){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<94>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<92>");
 		m_y=bb_framework_SCREEN_HEIGHT-FLOAT(25.0);
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<98>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<96>");
 	if(m_bCount<=0 && ((bb_input_KeyHit(82))!=0)){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<99>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<97>");
 		m_bCount=10;
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<103>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<101>");
 	p_CheckCollision();
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<106>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<104>");
 	if(m_health<=0 && m_isDead==false){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<107>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<105>");
 		m_isDead=true;
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<110>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<108>");
 	if(m_flickering==true){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<111>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<109>");
 		if(Float(bb_app_Millisecs())-m_flTimer>FLOAT(3000.0)){
 			DBG_BLOCK();
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<112>");
+			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<110>");
 			m_flickering=false;
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<113>");
+			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<111>");
 			m_flTimer=Float(bb_app_Millisecs());
 		}
 	}
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<114>");
+	p_UpdateAnimation();
 }
 int c_Bunny::p_GetXpos(){
 	DBG_ENTER("Bunny.GetXpos")
 	c_Bunny *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<203>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<204>");
 	int t_=int(m_x);
 	return t_;
 }
@@ -26402,7 +26408,7 @@ int c_Bunny::p_GetYpos(){
 	DBG_ENTER("Bunny.GetYpos")
 	c_Bunny *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<207>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<208>");
 	int t_=int(m_y);
 	return t_;
 }
@@ -26410,108 +26416,80 @@ int c_Bunny::p_GetHealth(){
 	DBG_ENTER("Bunny.GetHealth")
 	c_Bunny *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<195>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<196>");
 	return m_health;
 }
 void c_Bunny::p_Draw(){
 	DBG_ENTER("Bunny.Draw")
 	c_Bunny *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<119>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<118>");
 	if(bb_mainClass_Debug){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<120>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<119>");
 		p_DrawHitBox(FLOAT(0.0),FLOAT(0.0));
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<123>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<122>");
 	if(m_isDead==false){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<136>");
-		if(m_direction==1){
-			DBG_BLOCK();
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<137>");
-			m_walkImagesTop->p_Draw2(m_x,m_y,FLOAT(0.0),FLOAT(1.0),FLOAT(1.0),0);
-		}else{
-			DBG_BLOCK();
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<138>");
-			if(m_direction==2){
-				DBG_BLOCK();
-				DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<139>");
-				m_walkImagesBottom->p_Draw2(m_x,m_y,FLOAT(0.0),FLOAT(1.0),FLOAT(1.0),0);
-			}else{
-				DBG_BLOCK();
-				DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<140>");
-				if(m_direction==3){
-					DBG_BLOCK();
-					DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<141>");
-					m_walkImagesLeft->p_Draw2(m_x,m_y,FLOAT(0.0),FLOAT(1.0),FLOAT(1.0),0);
-				}else{
-					DBG_BLOCK();
-					DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<142>");
-					if(m_direction==4){
-						DBG_BLOCK();
-						DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<143>");
-						m_walkImagesRight->p_Draw2(m_x,m_y,FLOAT(0.0),FLOAT(1.0),FLOAT(1.0),0);
-					}
-				}
-			}
-		}
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<148>");
-		bb_graphics_SetColor(FLOAT(255.0),FLOAT(255.0),FLOAT(255.0));
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<135>");
+		m_image->p_Draw2(m_x,m_y,FLOAT(0.0),FLOAT(1.0),FLOAT(1.0),0);
 		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<149>");
+		bb_graphics_SetColor(FLOAT(255.0),FLOAT(255.0),FLOAT(255.0));
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<150>");
 		int t_xdiff=m_bCount*3/2;
 		DBG_LOCAL(t_xdiff,"xdiff")
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<150>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<151>");
 		if(m_bCount>0){
 			DBG_BLOCK();
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<151>");
+			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<152>");
 			for(int t_x=0;t_x<=m_bCount-1;t_x=t_x+1){
 				DBG_BLOCK();
 				DBG_LOCAL(t_x,"x")
-				DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<152>");
+				DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<153>");
 				bb_graphics_DrawRect(Float(20+t_x*5),bb_framework_SCREEN_HEIGHT-FLOAT(50.0),FLOAT(3.0),FLOAT(15.0));
 			}
 		}
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<155>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<156>");
 		if(m_bCount<=0){
 			DBG_BLOCK();
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<156>");
-			bb_graphics_SetColor(FLOAT(255.0),FLOAT(0.0),FLOAT(0.0));
 			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<157>");
+			bb_graphics_SetColor(FLOAT(255.0),FLOAT(0.0),FLOAT(0.0));
+			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<158>");
 			bb_graphics_DrawText(String(L"Reload!",7),bb_framework_SCREEN_WIDTH/FLOAT(2.0)-FLOAT(3.0),bb_framework_SCREEN_HEIGHT/FLOAT(2.0),FLOAT(0.0),FLOAT(0.0));
 		}
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<161>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<162>");
 		if(m_health>0){
 			DBG_BLOCK();
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<162>");
+			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<163>");
 			for(int t_x2=0;t_x2<=m_health-1;t_x2=t_x2+1){
 				DBG_BLOCK();
 				DBG_LOCAL(t_x2,"x")
-				DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<163>");
-				bb_graphics_SetColor(FLOAT(0.0),FLOAT(255.0),FLOAT(0.0));
 				DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<164>");
+				bb_graphics_SetColor(FLOAT(0.0),FLOAT(255.0),FLOAT(0.0));
+				DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<165>");
 				bb_graphics_DrawRect(Float(550+t_x2*15),bb_framework_SCREEN_HEIGHT-FLOAT(50.0),FLOAT(15.0),FLOAT(15.0));
 			}
 		}
 	}
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<171>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<172>");
 	if(m_isDead){
 		DBG_BLOCK();
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<172>");
-		bb_graphics_SetColor(FLOAT(255.0),FLOAT(0.0),FLOAT(0.0));
 		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<173>");
-		bb_graphics_DrawCircle(m_x,m_y+Float(m_bWidth*2),FLOAT(10.0));
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<174>");
-		bb_graphics_SetColor(FLOAT(255.0),FLOAT(255.0),FLOAT(255.0));
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<175>");
-		bb_graphics_DrawRect(m_x-Float(m_bWidth),m_y+Float(m_bWidth),Float(m_bHeight),Float(m_bWidth));
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<176>");
-		bb_graphics_DrawRect(m_x-Float(m_bWidth),m_y+Float(m_bWidth),Float(m_beHeight),Float(m_beWidth));
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<177>");
-		bb_graphics_DrawRect(m_x-Float(m_bWidth),m_y+Float(m_bWidth*2)-Float(m_beWidth),Float(m_beHeight),Float(m_beWidth));
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<178>");
 		bb_graphics_SetColor(FLOAT(255.0),FLOAT(0.0),FLOAT(0.0));
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<174>");
+		bb_graphics_DrawCircle(m_x,m_y+Float(m_bWidth*2),FLOAT(10.0));
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<175>");
+		bb_graphics_SetColor(FLOAT(255.0),FLOAT(255.0),FLOAT(255.0));
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<176>");
+		bb_graphics_DrawRect(m_x-Float(m_bWidth),m_y+Float(m_bWidth),Float(m_bHeight),Float(m_bWidth));
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<177>");
+		bb_graphics_DrawRect(m_x-Float(m_bWidth),m_y+Float(m_bWidth),Float(m_beHeight),Float(m_beWidth));
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<178>");
+		bb_graphics_DrawRect(m_x-Float(m_bWidth),m_y+Float(m_bWidth*2)-Float(m_beWidth),Float(m_beHeight),Float(m_beWidth));
 		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<179>");
+		bb_graphics_SetColor(FLOAT(255.0),FLOAT(0.0),FLOAT(0.0));
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/bunnyClass.monkey<180>");
 		bb_graphics_DrawLine(m_x-Float(m_bWidth/2),m_y+Float(m_bWidth*2),m_x-Float(m_bWidth/2),m_y+Float(m_bWidth)+FLOAT(4.0));
 	}
 }
@@ -26890,28 +26868,28 @@ Float c_Hunter::p_GetXpos(){
 	DBG_ENTER("Hunter.GetXpos")
 	c_Hunter *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<97>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<96>");
 	return m_x;
 }
 int c_Hunter::p_GetWidth(){
 	DBG_ENTER("Hunter.GetWidth")
 	c_Hunter *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<105>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<104>");
 	return m_width;
 }
 Float c_Hunter::p_GetYpos(){
 	DBG_ENTER("Hunter.GetYpos")
 	c_Hunter *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<101>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<100>");
 	return m_y;
 }
 int c_Hunter::p_GetHeight(){
 	DBG_ENTER("Hunter.GetHeight")
 	c_Hunter *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<109>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<108>");
 	return m_height;
 }
 c_Hunter* c_Hunter::m_new(){
@@ -26986,22 +26964,22 @@ void c_Hunter::p_CheckCollision(){
 	DBG_ENTER("Hunter.CheckCollision")
 	c_Hunter *self=this;
 	DBG_LOCAL(self,"Self")
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<113>");
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<112>");
 	c_Enumerator2* t_=bb_bulletClass_bullets->p_ObjectEnumerator();
 	while(t_->p_HasNext()){
 		DBG_BLOCK();
 		c_Bullet* t_bullet=t_->p_NextObject();
 		DBG_LOCAL(t_bullet,"bullet")
-		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<114>");
+		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<113>");
 		if(t_bullet->p_GetXpos()+t_bullet->p_GetRadius()/FLOAT(2.0)>m_x && t_bullet->p_GetXpos()-t_bullet->p_GetRadius()/FLOAT(2.0)<m_x+Float(m_width) && t_bullet->p_GetYpos()+t_bullet->p_GetRadius()/FLOAT(2.0)>m_y && t_bullet->p_GetYpos()-t_bullet->p_GetRadius()/FLOAT(2.0)<m_y+Float(m_height)){
 			DBG_BLOCK();
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<115>");
+			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<114>");
 			bb_hunterClass_hunters->p_Remove3(this);
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<116>");
+			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<115>");
 			bb_bulletClass_bullets->p_Remove(t_bullet);
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<117>");
+			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<116>");
 			bbPrint(String(L"Hunter killed",13));
-			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<118>");
+			DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<117>");
 			bb_mainClass_gameScreen->m_score+=100;
 		}
 	}
@@ -27013,26 +26991,26 @@ void c_Hunter::p_Update3(int t_tx,int t_ty){
 	DBG_LOCAL(t_tx,"tx")
 	DBG_LOCAL(t_ty,"ty")
 	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<74>");
-	m_dt->p_UpdateDelta();
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<75>");
-	m_dx=Float(t_tx)-m_sx;
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<76>");
-	m_dy=Float(t_ty)-m_sy;
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<77>");
-	m_x+=m_dx/m_speed*m_dt->m_delta;
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<78>");
-	m_y+=m_dy/m_speed*m_dt->m_delta;
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<79>");
-	p_CheckCollision();
-	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<80>");
 	p_UpdateAnimation();
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<75>");
+	m_dt->p_UpdateDelta();
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<76>");
+	m_dx=Float(t_tx)-m_sx;
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<77>");
+	m_dy=Float(t_ty)-m_sy;
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<78>");
+	m_x+=m_dx/m_speed*m_dt->m_delta;
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<79>");
+	m_y+=m_dy/m_speed*m_dt->m_delta;
+	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<80>");
+	p_CheckCollision();
 }
-void c_Hunter::p_Render(){
-	DBG_ENTER("Hunter.Render")
+void c_Hunter::p_Draw(){
+	DBG_ENTER("Hunter.Draw")
 	c_Hunter *self=this;
 	DBG_LOCAL(self,"Self")
 	DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<84>");
-	p_Draw();
+	m_hunterImage->p_Draw2(m_x,m_y,FLOAT(0.0),FLOAT(1.0),FLOAT(1.0),0);
 }
 void c_Hunter::mark(){
 	c_Sprite::mark();
@@ -27501,7 +27479,7 @@ void bb_hunterClass_RenderHunter(){
 		c_Hunter* t_hunter=t_->p_NextObject();
 		DBG_LOCAL(t_hunter,"hunter")
 		DBG_INFO("C:/Users/Seb/Documents/Programmation/Monkey/bananas/moerin/bunnyShooter/hunterClass.monkey<21>");
-		t_hunter->p_Render();
+		t_hunter->p_Draw();
 	}
 }
 int bb_bulletClass_RenderBullets(){

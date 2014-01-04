@@ -2,10 +2,6 @@ Strict
 
 Import gameClasses
 
-Function SpwanShoot:Void()
-	
-End
-
 Class Bunny Extends Sprite
 '	Field xPos:Float
 '	Field yPos:float
@@ -44,10 +40,10 @@ Class Bunny Extends Sprite
 		
 		bCount = bAmount
 		flTimer = Millisecs()
-		'note: TODO: HitBox wrong size
-		Self.SetHitBox(-img.w, -img.h2, 32, 32)
+		'note: PENDING: HitBox wrong size
+		Self.SetHitBox(-img.w2 + 17, -img.h2, 32, 32)
 		Self.visible = True
-		direction = 2
+		direction = DOWN
 		
 		' Atlas part
 		walkImagesTop = diddyGame.images.FindSet("bunny_top", 32, 32, 2)
@@ -61,10 +57,15 @@ Class Bunny Extends Sprite
 		If KeyDown(KEY_W)
 			y -= speed
 			direction = UP
+			image = walkImagesTop
+			SetFrame(0, 1, 50)
 		EndIf
 		If KeyDown(KEY_S)
 			y += speed
 			direction = DOWN
+			direction = UP
+			image = walkImagesDown
+			SetFrame(0, 1, 50)
 		EndIf
 		If KeyDown(KEY_A)
 			x -= speed
@@ -113,6 +114,7 @@ Class Bunny Extends Sprite
 				flTimer = Millisecs()
 			EndIf
 		EndIf
+		UpdateAnimation()
 	End
 	
 	Method Draw:Void()
@@ -133,15 +135,17 @@ Class Bunny Extends Sprite
 '			DrawRect(x, y, beWidth, beHeight)
 '			DrawRect(x + 15 - 2, y, beWidth, beHeight)
 			
-			If direction = UP Then
-				walkImagesTop.Draw(x, y)
-			ElseIf direction = DOWN Then
-				walkImagesBottom.Draw(x, y)
-			ElseIf direction = LEFT Then
-				walkImagesLeft.Draw(x, y)
-			ElseIf direction = RIGHT Then
-				walkImagesRight.Draw(x, y)
-			EndIf
+			image.Draw(x, y)
+
+'			If direction = UP Then
+'				walkImagesTop.Draw(x, y)
+'			ElseIf direction = DOWN Then
+'				walkImagesBottom.Draw(x, y)
+'			ElseIf direction = LEFT Then
+'				walkImagesLeft.Draw(x, y)
+'			ElseIf direction = RIGHT Then
+'				walkImagesRight.Draw(x, y)
+'			EndIf
 			
 			'note: TODO: Add bullet Sprite and draw gun
 			'Bullets

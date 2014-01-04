@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:a8e44bef4ad9f8aed8e0168492639abd:2925c5396458d339f71f13262cb11cfb:3c669c82c3610ee97c25583e3861bd35$ -->
+<TextureAtlas imagePath="hunter_character.png">
+    <SubTexture name="hunter_full0" x="2" y="2" width="476" height="50"/>
+</TextureAtlas>

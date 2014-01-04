@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:c99da3bdfc06f07911a087269d02bd14:87311db12c1b252230ef1e6ded3942d4:54933afae335642f61c87a1e9198f614$ -->
+<TextureAtlas imagePath="bunny_character.png">
+    <SubTexture name="bunny_bottom" x="0" y="0" width="64" height="32"/>
+    <SubTexture name="bunny_left" x="66" y="0" width="64" height="32"/>
+    <SubTexture name="bunny_right" x="132" y="0" width="64" height="32"/>
+    <SubTexture name="bunny_top" x="198" y="0" width="64" height="32"/>
+</TextureAtlas>

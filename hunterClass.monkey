@@ -18,7 +18,7 @@ End
 
 Function RenderHunter:Void()
 	For Local hunter:= EachIn hunters
-		hunter.Render()
+		hunter.Draw()
 	Next
 End
 
@@ -71,18 +71,17 @@ Class Hunter Extends Sprite
 	End
 	
 	Method Update:Void(tx:int, ty:int)
+		UpdateAnimation()
 		dt.UpdateDelta()
 		dx = tx - sx
 		dy = ty - sy
 		x += (dx / speed) * dt.delta
 		y += (dy / speed) * dt.delta
 		CheckCollision()
-		UpdateAnimation()
 	End
 	
-	Method Render:Void()
-		Draw()
-		
+	Method Draw:Void()
+		hunterImage.Draw(x, y)
 '		SetColor(0, 0, 0)
 '		DrawRect(cx, cy, width, height)
 '		DrawText(dist, 10, 10)
